@@ -7,5 +7,4 @@ The score for the competition is measured with the MarioKart Experience
 Index (MKEI).
 The formula of this score is `(score / max_score) * 100` where:
 * score is the amount of points in total (`amount of players - position`)
-* max_score is the maximum amount of point available (`games * (amount of players
-- 1)`).
+* max_score is the maximum amount of point available ( `games * (amount of players - 1)` ).
