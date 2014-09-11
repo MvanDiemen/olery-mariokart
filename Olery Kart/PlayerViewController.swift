@@ -43,15 +43,15 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     super.didReceiveMemoryWarning()
   }
 
-  func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
 
-  func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return list.count
   }
 
-  func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell: PlayerCell = playerList?.dequeueReusableCellWithIdentifier("Player") as PlayerCell
 
     var player = list[indexPath.row] as NSManagedObject

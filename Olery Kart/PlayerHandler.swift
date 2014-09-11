@@ -42,7 +42,7 @@ class PlayerHandler {
 
   func getPlayerList() -> NSArray {
     request.predicate = nil
-    return context.executeFetchRequest(request, error: nil)
+    return context.executeFetchRequest(request, error: nil)!
   }
 
   func addPredicate(predicate:NSPredicate) {
@@ -51,7 +51,7 @@ class PlayerHandler {
 
   func getPlayer(name:String) -> NSManagedObject {
     addPredicate(NSPredicate(format: "name = %@", "" + name))
-    var player = context.executeFetchRequest(request, error: nil)
+    var player = context.executeFetchRequest(request, error: nil)!
     
     return player[0] as NSManagedObject
   }

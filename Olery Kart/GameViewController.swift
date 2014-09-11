@@ -34,11 +34,11 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     return 1
   }
 
-  func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return list.count
   }
 
-  func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell: PlayerCell = playerList?.dequeueReusableCellWithIdentifier("Player") as PlayerCell
 
     var player = list[indexPath.row] as NSManagedObject
@@ -48,15 +48,15 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     return cell
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     if (segue.identifier == "startPlaying") {
       var players = []
-      players     = playerList!.indexPathsForSelectedRows()
+      players     = playerList!.indexPathsForSelectedRows()!
       var names   = [String]()
 
       for player in players {
         var cell = playerList!.cellForRowAtIndexPath(player as NSIndexPath) as PlayerCell
-        names.append(cell.mName!.text)
+        names.append(cell.mName!.text!)
       }
 
       var vc:NewGameViewController = segue.destinationViewController as NewGameViewController

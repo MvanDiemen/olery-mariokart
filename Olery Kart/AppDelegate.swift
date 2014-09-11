@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+//import TestFlight
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+//    TestFlight.takeOff = "493421db-773f-4cf6-937d-b605b046c097"
     // Override point for customization after application launch.
     return true
   }
@@ -47,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   lazy var managedObjectModel: NSManagedObjectModel = {
       // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
       let modelURL = NSBundle.mainBundle().URLForResource("Olery_Kart", withExtension: "momd")
-      return NSManagedObjectModel(contentsOfURL: modelURL)
+      return NSManagedObjectModel(contentsOfURL: modelURL!)
   }()
 
   lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
