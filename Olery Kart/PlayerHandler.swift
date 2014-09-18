@@ -24,6 +24,10 @@ class PlayerHandler {
     player.setValue("\(0)", forKey:"games")
     player.setValue("\(0)", forKey:"score")
     player.setValue("\(0)", forKey:"max_score")
+    player.setValue("\(0)", forKey:"first")
+    player.setValue("\(0)", forKey:"second")
+    player.setValue("\(0)", forKey:"third")
+    player.setValue("\(0)", forKey:"fourth")
 
     context.save(nil)
   }
@@ -35,6 +39,10 @@ class PlayerHandler {
       player.setValue("\(0)", forKey:"games")
       player.setValue("\(0)", forKey:"score")
       player.setValue("\(0)", forKey:"max_score")
+      player.setValue("\(0)", forKey:"first")
+      player.setValue("\(0)", forKey:"second")
+      player.setValue("\(0)", forKey:"third")
+      player.setValue("\(0)", forKey:"fourth")
 
       context.save(nil)
     }
@@ -70,6 +78,38 @@ class PlayerHandler {
 
   func getPlayerMaxScore(player:NSManagedObject) -> Int {
     return (player.valueForKey("max_score") as String).toInt()!
+  }
+
+  func getFirsts(player:NSManagedObject) -> Int {
+    return (player.valueForKey("first") as String).toInt()!
+  }
+
+  func getSeconds(player:NSManagedObject) -> Int {
+    return (player.valueForKey("second") as String).toInt()!
+  }
+
+  func getThirds(player:NSManagedObject) -> Int {
+    return (player.valueForKey("third") as String).toInt()!
+  }
+
+  func getFourths(player:NSManagedObject) -> Int {
+    return (player.valueForKey("fourth") as String).toInt()!
+  }
+
+  func updatePlaces(name:String, one:Int, two:Int, three:Int, four:Int) {
+    var player = getPlayer(name)
+
+    var oldFirst  = getFirsts(player)
+    var oldSecond = getSeconds(player)
+    var oldThird  = getThirds(player)
+    var oldFourth = getFourths(player)
+
+    player.setValue("\(oldFirst + one)", forKey:"first")
+    player.setValue("\(oldSecond + two)", forKey: "second")
+    player.setValue("\(oldThird + three)", forKey: "third")
+    player.setValue("\(oldFourth + four)", forKey: "fourth")
+
+    context.save(nil)
   }
 
   func updatePlayer(name:String, addedGames:Int, addedScore:Int, addedMaxScore:Int) {

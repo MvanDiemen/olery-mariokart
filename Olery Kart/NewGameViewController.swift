@@ -147,19 +147,23 @@ class NewGameViewController:UIViewController {
       names.append("\(player)")
     }
 
+    setupScoreAndNames()
+  }
+  
+  func setupScoreAndNames() {
     firstPlayerName?.text = names[0]
     secondPlayerName?.text = names[1]
-    scoreOne = NOPlayers - 1
-    scoreTwo = NOPlayers - 2
+    scoreOne   = NOPlayers - 1
+    scoreTwo   = NOPlayers - 2
+    scoreThree = NOPlayers - 3
+    scoreFour  = NOPlayers - 4
 
     if (NOPlayers == 4) {
       fourthPlayerName?.text = names[3]
       thirdPlayerName?.text = names[2]
-      scoreFour = NOPlayers - 4
     } else if (NOPlayers == 3) {
       fourthPlayerName?.text = "Not Playing"
       thirdPlayerName?.text = names[2]
-      scoreFour = NOPlayers - 3
     } else {
       fourthPlayerName?.text = "Not Playing"
       thirdPlayerName?.text = "Not Playing"
@@ -189,6 +193,7 @@ class NewGameViewController:UIViewController {
 
     maxScore = games * (NOPlayers - 1)
 
+    playerHandler.updatePlaces(names[0], one: firstStepper, two: secondStepper, three: thirdStepper, four: fourthStepper)
     playerHandler.updatePlayer(names[0], addedGames: games, addedScore: score, addedMaxScore: maxScore)
   }
 
@@ -211,6 +216,7 @@ class NewGameViewController:UIViewController {
 
     maxScore1 = games1 * (NOPlayers - 1)
 
+    playerHandler.updatePlaces(names[1], one: firstStepper, two: secondStepper, three: thirdStepper, four: fourthStepper)
     playerHandler.updatePlayer(names[1], addedGames: games1, addedScore: score1, addedMaxScore: maxScore1)
   }
 
@@ -233,6 +239,7 @@ class NewGameViewController:UIViewController {
 
     maxScore2 = games2 * (NOPlayers - 1)
 
+    playerHandler.updatePlaces(names[2], one: firstStepper, two: secondStepper, three: thirdStepper, four: fourthStepper)
     playerHandler.updatePlayer(names[2], addedGames: games2, addedScore: score2, addedMaxScore: maxScore2)
   }
 
@@ -255,6 +262,7 @@ class NewGameViewController:UIViewController {
 
     maxScore3 = games3 * (NOPlayers - 1)
 
+    playerHandler.updatePlaces(names[3], one: firstStepper, two: secondStepper, three: thirdStepper, four: fourthStepper)
     playerHandler.updatePlayer(names[3], addedGames: games3, addedScore: score3, addedMaxScore: maxScore3)
   }
 }

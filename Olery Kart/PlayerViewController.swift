@@ -3,6 +3,7 @@ import CoreData
 
 class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   @IBOutlet var playerList:UITableView?
+  var selectedPlayer:NSManagedObject?
 
   @IBAction func addPlayer(sender: AnyObject) {
     self.modalPresentationStyle = .CurrentContext
@@ -10,6 +11,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
   }
 
   @IBAction func unwindToPlayer(segue:UIStoryboardSegue) {
+    self.view.viewWithTag(99)?.removeFromSuperview()
     updateList()
     viewDidLoad()
   }
@@ -60,5 +62,48 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     cell.setMkei(player)
 
     return cell
+  }
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    var cell = playerList?.cellForRowAtIndexPath(indexPath) as PlayerCell
+    selectedPlayer = playerHandler.getPlayer(cell.mName!.text!)
+
+    self.performSegueWithIdentifier("showPlayer", sender: cell)
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    self.modalPresentationStyle = .CurrentContext
+    self.modalPresentationStyle = .FormSheet
+
+    if (segue.identifier == "showPlayer") {
+      var vc:PlayerOverViewController = segue.destinationViewController as PlayerOverViewController
+
+      var cell = playerList!.cellForRowAtIndexPath(playerList!.indexPathForSelectedRow()!) as PlayerCell
+
+      selectedPlayer = playerHandler.getPlayer(cell.mName!.text!)
+      
+      var name:String = playerHandler.getPlayerName(selectedPlayer!)
+
+      var score:Int = playerHandler.getPlayerScore(selectedPlayer!)
+      var max:Int   = playerHandler.getPlayerMaxScore(selectedPlayer!)
+      var games:Int = playerHandler.getPlayerGames(selectedPlayer!)
+
+      var firsts:Int  = playerHandler.getFirsts(selectedPlayer!)
+      var seconds:Int = playerHandler.getSeconds(selectedPlayer!)
+      var thirds:Int  = playerHandler.getThirds(selectedPlayer!)
+      var fourths:Int = playerHandler.getFourths(selectedPlayer!)
+      
+      vc.setNumbers(games, newMaxScore: max, newScore: score, newName: name)
+      vc.setPlaces(firsts, newSecond: seconds, newThird: thirds, newFourth: fourths)
+    }
+    
+    var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+    //      var vibrancy:UIVibrancyEffect = UIVibrancyEffect(forBlurEffect: blur)
+    var effectView:UIVisualEffectView = UIVisualEffectView(effect: blur)
+
+    effectView.frame = CGRectMake(0, 0, 640, 1136)
+    effectView.tag = 99
+
+    self.view.addSubview(effectView)
   }
 }

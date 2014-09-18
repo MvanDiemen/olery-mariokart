@@ -9,6 +9,11 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func startPlaying(segue: UIStoryboardSegue) {
     self.performSegueWithIdentifier("startPlaying", sender: self)
   }
+
+  @IBAction func unwindToGame(segue:UIStoryboardSegue) {
+    self.view.viewWithTag(99)?.removeFromSuperview()
+    viewDidLoad()
+  }
                             
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,6 +54,9 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    self.modalPresentationStyle = .CurrentContext
+    self.modalPresentationStyle = .FormSheet
+    
     if (segue.identifier == "startPlaying") {
       var players = []
       players     = playerList!.indexPathsForSelectedRows()!
@@ -62,6 +70,15 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
       var vc:NewGameViewController = segue.destinationViewController as NewGameViewController
       vc.setPlayers(names)
     }
+
+    var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+    //      var vibrancy:UIVibrancyEffect = UIVibrancyEffect(forBlurEffect: blur)
+    var effectView:UIVisualEffectView = UIVisualEffectView(effect: blur)
+
+    effectView.frame = CGRectMake(0, 0, 640, 1136)
+    effectView.tag = 99
+
+    self.view.addSubview(effectView)
   }
 }
 

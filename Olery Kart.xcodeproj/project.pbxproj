@@ -16,9 +16,10 @@
 		7C103D5619ADD820005EB8B4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C103D5519ADD820005EB8B4 /* PlayerViewController.swift */; };
 		7C103D5819ADD886005EB8B4 /* PlayerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C103D5719ADD886005EB8B4 /* PlayerHandler.swift */; };
 		7C3B83BC19AF30AD00F59BC7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3B83BB19AF30AD00F59BC7 /* Alert.swift */; };
+		7C3E4D4919C34174001F18D3 /* PlayerOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3E4D4819C34174001F18D3 /* PlayerOverViewController.swift */; };
 		7CEBA9A419ADFBA00053F603 /* NewPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBA9A319ADFBA00053F603 /* NewPlayerViewController.swift */; };
 		7CEBA9A619AE10D80053F603 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBA9A519AE10D80053F603 /* NewGameViewController.swift */; };
-		7CFCF55319ADE884004B35E5 /* PlayerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFCF55219ADE884004B35E5 /* PlayerViewCell.swift */; };
+		7CFCF55319ADE884004B35E5 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFCF55219ADE884004B35E5 /* PlayerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +47,10 @@
 		7C103D5519ADD820005EB8B4 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		7C103D5719ADD886005EB8B4 /* PlayerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHandler.swift; sourceTree = "<group>"; };
 		7C3B83BB19AF30AD00F59BC7 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		7C3E4D4819C34174001F18D3 /* PlayerOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOverViewController.swift; sourceTree = "<group>"; };
 		7CEBA9A319ADFBA00053F603 /* NewPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlayerViewController.swift; sourceTree = "<group>"; };
 		7CEBA9A519AE10D80053F603 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
-		7CFCF55219ADE884004B35E5 /* PlayerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewCell.swift; sourceTree = "<group>"; };
+		7CFCF55219ADE884004B35E5 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 				7C103D3919ADD5B5005EB8B4 /* GameViewController.swift */,
 				7CEBA9A519AE10D80053F603 /* NewGameViewController.swift */,
 				7C103D5719ADD886005EB8B4 /* PlayerHandler.swift */,
-				7CFCF55219ADE884004B35E5 /* PlayerViewCell.swift */,
+				7C3E4D4819C34174001F18D3 /* PlayerOverViewController.swift */,
+				7CFCF55219ADE884004B35E5 /* PlayerCell.swift */,
 				7CEBA9A319ADFBA00053F603 /* NewPlayerViewController.swift */,
 				7C103D5519ADD820005EB8B4 /* PlayerViewController.swift */,
 				7C103D3B19ADD5B5005EB8B4 /* Main.storyboard */,
@@ -240,8 +243,9 @@
 				7C3B83BC19AF30AD00F59BC7 /* Alert.swift in Sources */,
 				7C103D3A19ADD5B5005EB8B4 /* GameViewController.swift in Sources */,
 				7CEBA9A619AE10D80053F603 /* NewGameViewController.swift in Sources */,
-				7CFCF55319ADE884004B35E5 /* PlayerViewCell.swift in Sources */,
+				7CFCF55319ADE884004B35E5 /* PlayerCell.swift in Sources */,
 				7C103D5619ADD820005EB8B4 /* PlayerViewController.swift in Sources */,
+				7C3E4D4919C34174001F18D3 /* PlayerOverViewController.swift in Sources */,
 				7C103D5819ADD886005EB8B4 /* PlayerHandler.swift in Sources */,
 				7CEBA9A419ADFBA00053F603 /* NewPlayerViewController.swift in Sources */,
 				7C103D3519ADD5B5005EB8B4 /* AppDelegate.swift in Sources */,
@@ -367,7 +371,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -382,7 +386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

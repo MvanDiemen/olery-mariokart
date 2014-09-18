@@ -8,9 +8,6 @@ class PlayerCell: UITableViewCell {
   var playerHandler:PlayerHandler = PlayerHandler()
 
   func calculateMKEI(score:Int, max_score:Int, games:Int) -> Int {
-
-//    var total = Float(score) / Float(games)
-//    var index = Float(total) / Float(max_score)
     var index      = Float(score) / Float(max_score)
     var percentage = Int(round(index * 100))
 
